@@ -2,9 +2,7 @@
   <gridster [options]="options">
     <gridster-item [item]="item" *ngFor="let item of dashboard">
       <i class="fa fa-trash" style="font-size:30px;cursor:pointer;position:absolute;right:0" (click)="removeItem($event, item)"></i>
-      <h1> {{item.title}}
-
-      </h1>
+      <h1>{{item.title}}</h1>
     </gridster-item>
   </gridster>
 </div>
