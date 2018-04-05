@@ -11,6 +11,9 @@ export class GridsterComponent implements OnInit {
   title = 'app';
   options: GridsterConfig;
   dashboard: Array<GridsterItem>;
+  message: string;
+  divMessage: string;
+  images: string[];
 
   itemChange(item, itemComponent) {
     //console.info('itemChanged', item, itemComponent);
@@ -20,7 +23,8 @@ export class GridsterComponent implements OnInit {
     //console.info('itemResized', item, itemComponent);
   }
   ngOnInit() {
-
+    this.images = this.getImagesString();
+    console.log(this.images);
     this.options = gridSterOptions;
     this.options.itemResizeCallback = (item, component) => {
       //console.info(item, component);
@@ -33,6 +37,12 @@ export class GridsterComponent implements OnInit {
     ];
   }
 
+  getImagesString() {
+    let result = [...Array(87)].map((v, i) => 'smiley (' + (i + 1) + ').png');
+    console.log(result);
+    return result;
+  }
+
   getNextPossiblePosition() {
     const result = this.options.api.getNextPossiblePosition({});
     console.log(result);
@@ -43,6 +53,7 @@ export class GridsterComponent implements OnInit {
   }
   emptyCellClick(event: MouseEvent, item: GridsterItem) {
     // console.log(this);
+    item.url = this.divMessage;
     this.dashboard.push(item);
   }
   removeItem($event, item) {
@@ -55,5 +66,10 @@ export class GridsterComponent implements OnInit {
     // else {
     //   alert("No Space to add :)");
     // }
+  }
+
+  onDragStart(event) {
+    this.divMessage = event.srcElement.src;
+    console.log(event);
   }
 }

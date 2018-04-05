@@ -3,6 +3,10 @@
     height: 500px;
 }
 
+.images {
+    float: left;
+}
+
 .container2 {}
 
 .img-draggable {
