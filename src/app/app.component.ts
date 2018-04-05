@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { GridsterConfig, GridsterItem } from 'angular-gridster2';
+import { GridsterDraggable } from 'angular-gridster2/dist/gridsterDraggable.service';
+import { gridSterOptions } from './Defaults/gridsterOptions';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  ngOnInit() {
+
+  }
 }
